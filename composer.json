@@ -1,0 +1,18 @@
+{
+    "name": "ddeboer/vatin",
+    "description": "Validate VAT identification numbers",
+    "authors": [
+        {
+            "name": "David de Boer",
+            "email": "david@ddeboer.nl"
+        }
+    ],
+    "require": {
+
+    },
+    "autoload": {
+        "psr-0": {
+            "Ddeboer\\Vatin": "src"
+        }
+    }
+}
