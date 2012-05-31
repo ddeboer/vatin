@@ -2,6 +2,8 @@
 
 namespace Ddeboer\Vatin;
 
+use Ddeboer\Vatin\Vies\Client;
+
 /**
  * Validate a VAT identification number (VATIN)
  *
@@ -26,16 +28,37 @@ class Validator
     );
 
     /**
+     * Client for the VIES web service
+     *
+     * @var Client
+     */
+    protected $viesClient;
+
+    /**
+     * Set VIES client
+     *
+     * @param Client $viesClient Client for the VIES web service
+     */
+    public function setViesClient(Client $viesClient)
+    {
+        $this->viesClient = $viesClient;
+    }
+
+    /**
      * Returns true if value is a valid VAT identification number, false
      * otherwise
      *
-     * @param string $value Value
+     * @param string $value          Value
+     * @param bool   $checkExistence In addition to checking the VATIN's format
+     *                               for validity, also check whether the VATIN
+     *                               exists. This requires a call to the VIES
+     *                               web service.
      *
      * @return bool
      */
-    public function isValid($value)
+    public function isValid($value, $checkExistence = false)
     {
-        if (null === $value) {
+        if (null === $value || '' === $value) {
             return false;
         }
 
@@ -46,7 +69,22 @@ class Validator
             return false;
         }
 
-        return 1 === preg_match('/'.$this->patterns[$countryCode].'/', $vatin);
+        if (0 === preg_match('/'.$this->patterns[$countryCode].'/', $vatin)) {
+            return false;
+        }
+
+        if (true === $checkExistence) {
+            if (null === $this->viesClient) {
+                throw new \Exception(
+                    'For checking VATIN existence, VIES client must be set'
+                );
+            }
+            $result = $this->viesClient->checkVat($countryCode, $vatin);
+
+            return $result->isValid();
+        }
+
+        return true;
     }
 
     /**

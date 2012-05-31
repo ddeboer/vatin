@@ -29,6 +29,18 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->validator->isValid($value));
     }
 
+    public function testValidWithVies()
+    {
+        $this->validator->setViesClient(new \Ddeboer\Vatin\Vies\Client());
+        $this->assertTrue($this->validator->isValid('NL002065538B01', true));
+    }
+
+    public function testInvalidWithVies()
+    {
+        $this->validator->setViesClient(new \Ddeboer\Vatin\Vies\Client());
+        $this->assertFalse($this->validator->isValid('NL123456789B01', true));
+    }
+
     /**
      * @return array
      */
