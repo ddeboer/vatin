@@ -65,6 +65,20 @@ class Validator
     }
 
     /**
+     * Get VIES client
+     *
+     * @return Client
+     */
+    public function getViesClient()
+    {
+        if (null === $this->viesClient) {
+            $this->viesClient = new Client();
+        }
+
+        return $this->viesClient;
+    }
+
+    /**
      * Returns true if value is a valid VAT identification number, false
      * otherwise
      *
@@ -94,12 +108,7 @@ class Validator
         }
 
         if (true === $checkExistence) {
-            if (null === $this->viesClient) {
-                throw new \Exception(
-                    'For checking VATIN existence, VIES client must be set'
-                );
-            }
-            $result = $this->viesClient->checkVat($countryCode, $vatin);
+            $result = $this->getViesClient()->checkVat($countryCode, $vatin);
 
             return $result->isValid();
         }

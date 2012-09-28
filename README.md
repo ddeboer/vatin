@@ -24,5 +24,4 @@ Information Exchange System (VIES)]
 (http://ec.europa.eu/taxation_customs/vies/faq.html#item_16) SOAP web service:
 
     $validator = new \Ddeboer\Vatin\Validator();
-    $validator->setViesClient(new \Ddeboer\Vatin\Vies\Client());
     $bool = $validator->isValid('NL123456789B01', true);
