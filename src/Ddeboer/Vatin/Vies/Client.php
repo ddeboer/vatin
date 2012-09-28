@@ -52,10 +52,12 @@ class Client
      */
     public function checkVat($countryCode, $vatNumber)
     {
-        return $this->getSoapClient()->checkVat(array(
-            'countryCode' => $countryCode,
-            'vatNumber' => $vatNumber
-        ));
+        return $this->getSoapClient()->checkVat(
+            array(
+                'countryCode' => $countryCode,
+                'vatNumber' => $vatNumber
+            )
+        );
     }
 
     /**
@@ -66,9 +68,12 @@ class Client
     protected function getSoapClient()
     {
         if (null === $this->soapClient) {
-            $this->soapClient = new \SoapClient($this->wsdl, array(
-                'classmap' => $this->classmap
-            ));
+            $this->soapClient = new \SoapClient(
+                $this->wsdl,
+                array(
+                    'classmap' => $this->classmap
+               )
+            );
         }
 
         return $this->soapClient;
