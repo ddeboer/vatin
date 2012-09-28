@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/ddeboer/vatin.png)](http://travis-ci.org/phpforce/soap-client)
+
 VATIN: validation for VAT identification numbers
 ================================================
 
