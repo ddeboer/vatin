@@ -71,7 +71,8 @@ class Client
             $this->soapClient = new \SoapClient(
                 $this->wsdl,
                 array(
-                    'classmap' => $this->classmap
+                    'classmap' => $this->classmap,
+                    'user_agent' => 'Mozilla', // the request fails unless a (dummy) user agent is specified
                )
             );
         }
