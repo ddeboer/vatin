@@ -2,10 +2,12 @@
     "name": "ddeboer/vatin",
     "description": "Validate VAT identification numbers",
     "keywords": [ "vat", "tax", "btw", "vies" ],
+    "license": "MIT",
     "authors": [
         {
             "name": "David de Boer",
-            "email": "david@ddeboer.nl"
+            "email": "david@ddeboer.nl",
+            "homepage": "https://github.com/ddeboer"
         }
     ],
     "require": {
