@@ -9,6 +9,11 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testCheckVat()
     {
         $client = new Client();
-        $client->checkVat('NL', '123456789B01');
+        $response = $client->checkVat('NL', '123456789B01');
+
+        $this->assertInstanceOf('\Ddeboer\Vatin\Vies\Response\CheckVatResponse', $response);
+        $this->assertFalse($response->isValid());
+        $this->assertEquals('NL', $response->getCountryCode());
+        $this->assertEquals('123456789B01', $response->getVatNumber());
     }
 }
