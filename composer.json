@@ -1,7 +1,7 @@
 {
     "name": "ddeboer/vatin",
     "description": "Validate VAT identification numbers",
-    "keywords": [ "vat", "tax", "btw" ],
+    "keywords": [ "vat", "tax", "btw", "vies" ],
     "authors": [
         {
             "name": "David de Boer",
