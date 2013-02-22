@@ -8,7 +8,9 @@ A small PHP 5.3 library for validating VAT identification numbers (VATINs).
 Installation
 ------------
 
-This library is available on [Packagist](http://packagist.org/packages/ddeboer/vatin).
+This library is available on [Packagist](http://packagist.org/packages/ddeboer/vatin):
+
+    $ composer require ddeboer/vatin:1.0
 
 If you want to use this library in a Symfony2 application, you can use the
 [VatinBundle](https://github.com/ddeboer/vatin-bundle) instead.
