@@ -21,12 +21,16 @@ Usage
 
 Validate a VAT number’s format:
 
-    $validator = new \Ddeboer\Vatin\Validator();
-    $bool = $validator->isValid('NL123456789B01');
+```php
+$validator = new \Ddeboer\Vatin\Validator();
+$bool = $validator->isValid('NL123456789B01');
+```
 
 Additionally check whether the VAT number is in use, with a call to the [VAT
 Information Exchange System (VIES)]
 (http://ec.europa.eu/taxation_customs/vies/faq.html#item_16) SOAP web service:
 
-    $validator = new \Ddeboer\Vatin\Validator();
-    $bool = $validator->isValid('NL123456789B01', true);
+```php
+$validator = new \Ddeboer\Vatin\Validator();
+$bool = $validator->isValid('NL123456789B01', true);
+```
