@@ -28,6 +28,10 @@ class CheckVatResponse
 
     public function getRequestDate()
     {
+        if (!$this->requestDate instanceof \DateTime) {
+            $this->requestDate = new \DateTime($this->requestDate);
+        }
+
         return $this->requestDate;
     }
 

@@ -14,6 +14,11 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $this->validator = new Validator();
     }
 
+    public function testViesClient()
+    {
+        $this->assertInstanceOf('\Ddeboer\Vatin\Vies\Client', $this->validator->getViesClient());
+    }
+
     /**
      * @dataProvider getValidVatins
      */
