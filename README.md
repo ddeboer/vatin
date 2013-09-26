@@ -1,6 +1,8 @@
 VATIN
 =====
-[![Build Status](https://secure.travis-ci.org/ddeboer/vatin.png)](http://travis-ci.org/ddeboer/vatin) [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/ddeboer/vatin/badges/quality-score.png?s=6e22e3338a0ed5b4b59ca3fe18df0eb00af0aeff)](https://scrutinizer-ci.com/g/ddeboer/vatin/) [![Latest Stable Version](https://poser.pugx.org/ddeboer/vatin/v/stable.png)](https://packagist.org/packages/ddeboer/vatin)
+[![Build Status](https://secure.travis-ci.org/ddeboer/vatin.png)](http://travis-ci.org/ddeboer/vatin) [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/ddeboer/vatin/badges/quality-score.png?s=6e22e3338a0ed5b4b59ca3fe18df0eb00af0aeff)](https://scrutinizer-ci.com/g/ddeboer/vatin/)
+[![Code Coverage](https://scrutinizer-ci.com/g/ddeboer/vatin/badges/coverage.png?s=f8e42287525ff0962de96f2cec333d622314f584)](https://scrutinizer-ci.com/g/ddeboer/vatin/)
+[![Latest Stable Version](https://poser.pugx.org/ddeboer/vatin/v/stable.png)](https://packagist.org/packages/ddeboer/vatin)
 
 A small PHP >= 5.3 library for validating VAT identification numbers (VATINs).
 
