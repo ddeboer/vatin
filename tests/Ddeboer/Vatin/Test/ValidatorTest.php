@@ -67,7 +67,8 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     public function getValidVatins()
     {
         return array(
-            array('NL123456789B01')
+            array('NL123456789B01'),
+            array('IE9574245O')
         );
     }
 
