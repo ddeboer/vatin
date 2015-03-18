@@ -65,7 +65,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
 
     public function testWrongConnectionThrowsException()
     {
-        $this->setExpectedException('\SoapFault');
+        $this->setExpectedException('\Ddeboer\Vatin\Exception\ViesException');
 
         $this->validator->setViesClient(new Client('http//google.com'));
         $this->validator->isValid('NL002065538B01', true);

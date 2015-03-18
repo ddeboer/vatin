@@ -3,6 +3,7 @@
 namespace Ddeboer\Vatin;
 
 use Ddeboer\Vatin\Vies\Client;
+use Ddeboer\Vatin\Exception\ViesException;
 
 /**
  * Validate a VAT identification number (VATIN)
