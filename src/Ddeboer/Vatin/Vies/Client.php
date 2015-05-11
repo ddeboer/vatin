@@ -2,6 +2,9 @@
 
 namespace Ddeboer\Vatin\Vies;
 
+use SoapFault;
+use Ddeboer\Vatin\Exception\ViesException;
+
 /**
  * A client for the VIES SOAP web service
  */
@@ -49,15 +52,20 @@ class Client
      * @param string $vatNumber   VAT number
      *
      * @return Response\CheckVatResponse
+     * @throws ViesException
      */
     public function checkVat($countryCode, $vatNumber)
     {
-        return $this->getSoapClient()->checkVat(
-            array(
-                'countryCode' => $countryCode,
-                'vatNumber' => $vatNumber
-            )
-        );
+        try {
+            return $this->getSoapClient()->checkVat(
+                array(
+                    'countryCode' => $countryCode,
+                    'vatNumber' => $vatNumber
+                )
+            );
+        } catch (SoapFault $e) {
+            throw new ViesException('Error communicating with VIES service', 0, $e);
+        }
     }
 
     /**
