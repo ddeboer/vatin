@@ -15,7 +15,7 @@
     },
     "suggest": {
         "ext-soap": "Required if you want to check the VAT number via VIES"
-    }
+    },
     "autoload": {
         "psr-0": {
             "Ddeboer\\Vatin": "src"
