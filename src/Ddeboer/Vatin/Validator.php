@@ -22,7 +22,7 @@ class Validator
      */
     protected $patterns = array(
         'AT' => 'U[A-Z\d]{8}',
-        'BE' => '0\d{9}',
+        'BE' => '[0|1]{1}\d{9}',
         'BG' => '\d{9,10}',
         'CY' => '\d{8}[A-Z]',
         'CZ' => '\d{8,10}',
@@ -32,7 +32,7 @@ class Validator
         'EL' => '\d{9}',
         'ES' => '[A-Z]\d{7}[A-Z]|\d{8}[A-Z]|[A-Z]\d{8}',
         'FI' => '\d{8}',
-        'FR' => '([A-Z]{2}|\d{2})\d{9}',
+        'FR' => '([A-Z0-9]{2})\d{9}',
         'GB' => '\d{9}|\d{12}|(GD|HA)\d{3}',
         'HR' => '\d{11}',
         'HU' => '\d{8}',
