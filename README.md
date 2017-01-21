@@ -5,7 +5,7 @@ VATIN
 [![Code Coverage](https://scrutinizer-ci.com/g/ddeboer/vatin/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/ddeboer/vatin/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/ddeboer/vatin/v/stable.png)](https://packagist.org/packages/ddeboer/vatin)
 
-A small PHP >= 5.3 library for validating VAT identification numbers (VATINs).
+A small PHP library for validating VAT identification numbers (VATINs).
 
 Installation
 ------------
@@ -13,7 +13,7 @@ Installation
 This library is available on [Packagist](http://packagist.org/packages/ddeboer/vatin):
 
 ```bash
-$ composer require ddeboer/vatin:@stable
+$ composer require ddeboer/vatin
 ```
 
 If you want to use this library in a Symfony2 application, you can use the
@@ -25,7 +25,9 @@ Usage
 Validate a VAT number’s format:
 
 ```php
-$validator = new \Ddeboer\Vatin\Validator();
+use Ddeboer\Vatin\Validator;
+
+$validator = new $validator;
 $bool = $validator->isValid('NL123456789B01');
 ```
 
@@ -34,6 +36,8 @@ Information Exchange System (VIES)]
 (http://ec.europa.eu/taxation_customs/vies/faq.html#item_16) SOAP web service:
 
 ```php
-$validator = new \Ddeboer\Vatin\Validator();
+use Ddeboer\Vatin\Validator;
+
+$validator = new $validator;
 $bool = $validator->isValid('NL123456789B01', true);
 ```
