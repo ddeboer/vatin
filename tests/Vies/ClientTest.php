@@ -8,7 +8,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 {
     public function testCheckVat()
     {
-        $client = new Client('http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl');
+        $client = new Client();
         $response = $client->checkVat('NL', '123456789B01');
 
         $this->assertInstanceOf('\Ddeboer\Vatin\Vies\Response\CheckVatResponse', $response);

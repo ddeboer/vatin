@@ -15,11 +15,6 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
         $this->validator = new Validator();
     }
 
-    public function testViesClient()
-    {
-        $this->assertInstanceOf('\Ddeboer\Vatin\Vies\Client', $this->validator->getViesClient());
-    }
-
     /**
      * @dataProvider getValidVatins
      */
@@ -43,9 +38,9 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('checkVat')
             ->with('NL', '002065538B01')
-            ->will($this->returnValue(new CheckVatResponse(true)));
+            ->willReturn($this->getCheckVatResponseMock(true));
 
-        $this->validator->setViesClient($client);
+        $this->validator = new Validator($client);
         $this->assertTrue($this->validator->isValid('NL002065538B01', true));
     }
 
@@ -56,9 +51,9 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('checkVat')
             ->with('NL', '123456789B01')
-            ->will($this->returnValue(new CheckVatResponse(false)));
+            ->willReturn($this->getCheckVatResponseMock(false));
 
-        $this->validator->setViesClient($client);
+        $this->validator = new Validator($client);
         $this->assertFalse($this->validator->isValid('NL123456789B01', true));
     }
 
@@ -67,7 +62,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     {
         $this->setExpectedException('\Ddeboer\Vatin\Exception\ViesException');
 
-        $this->validator->setViesClient(new Client('http//google.com'));
+        $this->validator = new Validator(new Client('meh'));
         $this->validator->isValid('NL002065538B01', true);
     }
 
@@ -176,4 +171,18 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
     }
+
+    private function getCheckVatResponseMock($valid)
+    {
+        $mock = $this->getMockBuilder('\Ddeboer\Vatin\Vies\Response\CheckVatResponse')
+            ->getMock();
+
+        $mock
+            ->expects($this->any())
+            ->method('isValid')
+            ->willReturn($valid);
+
+        return $mock;
+    }
+
 }
