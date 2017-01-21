@@ -16,7 +16,7 @@ This library is available on [Packagist](http://packagist.org/packages/ddeboer/v
 $ composer require ddeboer/vatin
 ```
 
-If you want to use this library in a Symfony2 application, you can use the
+If you want to use this library in a Symfony application, you can use the
 [VatinBundle](https://github.com/ddeboer/vatin-bundle) instead.
 
 Usage
