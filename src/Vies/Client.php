@@ -36,7 +36,7 @@ class Client
     /**
      * Constructor
      *
-     * @param string $wsdl URL to WSDL
+     * @param string|null $wsdl URL to WSDL
      */
     public function __construct($wsdl = null)
     {
