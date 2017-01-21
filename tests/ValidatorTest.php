@@ -8,7 +8,7 @@ use Ddeboer\Vatin\Vies\Client;
 
 class ValidatorTest extends \PHPUnit_Framework_TestCase
 {
-    protected $validator;
+    private $validator;
 
     public function setUp()
     {
@@ -170,7 +170,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     /**
      * @return \Ddeboer\Vatin\Vies\Client
      */
-    protected function getViesClientMock()
+    private function getViesClientMock()
     {
         return $this->getMockBuilder('\Ddeboer\Vatin\Vies\Client')
             ->disableOriginalConstructor()

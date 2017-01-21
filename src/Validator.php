@@ -20,7 +20,7 @@ class Validator
      * @var array
      * @link http://ec.europa.eu/taxation_customs/vies/faq.html?locale=lt#item_11
      */
-    protected $patterns = array(
+    private $patterns = array(
         'AT' => 'U[A-Z\d]{8}',
         'BE' => '[0|1]{1}\d{9}',
         'BG' => '\d{9,10}',
@@ -56,30 +56,16 @@ class Validator
      *
      * @var Client
      */
-    protected $viesClient;
+    private $viesClient;
 
     /**
-     * Set VIES client
+     * Constructor
      *
      * @param Client $viesClient Client for the VIES web service
      */
-    public function setViesClient(Client $viesClient)
+    public function __construct(Client $viesClient)
     {
         $this->viesClient = $viesClient;
-    }
-
-    /**
-     * Get VIES client
-     *
-     * @return Client
-     */
-    public function getViesClient()
-    {
-        if (null === $this->viesClient) {
-            $this->viesClient = new Client();
-        }
-
-        return $this->viesClient;
     }
 
     /**
@@ -127,8 +113,22 @@ class Validator
      *
      * @return bool
      */
-    public function isValidCountryCode($value)
+    private function isValidCountryCode($value)
     {
         return isset($this->patterns[$value]);
+    }
+
+    /**
+     * Get VIES client
+     *
+     * @return Client
+     */
+    private function getViesClient()
+    {
+        if ($this->viesClient === null) {
+            $this->viesClient = new Client();
+        }
+
+        return $this->viesClient;
     }
 }

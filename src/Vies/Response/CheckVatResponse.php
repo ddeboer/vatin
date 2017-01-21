@@ -4,17 +4,17 @@ namespace Ddeboer\Vatin\Vies\Response;
 
 class CheckVatResponse
 {
-    protected $countryCode;
+    private $countryCode;
 
-    protected $vatNumber;
+    private $vatNumber;
 
-    protected $requestDate;
+    private $requestDate;
 
-    protected $valid;
+    private $valid;
 
-    protected $name;
+    private $name;
 
-    protected $address;
+    private $address;
 
     public function getCountryCode()
     {
