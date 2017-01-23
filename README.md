@@ -27,7 +27,7 @@ Validate a VAT number’s format:
 ```php
 use Ddeboer\Vatin\Validator;
 
-$validator = new $validator;
+$validator = new Validator;
 $bool = $validator->isValid('NL123456789B01');
 ```
 
@@ -38,6 +38,6 @@ Information Exchange System (VIES)]
 ```php
 use Ddeboer\Vatin\Validator;
 
-$validator = new $validator;
+$validator = new Validator;
 $bool = $validator->isValid('NL123456789B01', true);
 ```
