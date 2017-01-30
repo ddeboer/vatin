@@ -10,10 +10,16 @@ php:
   - 7.0
   - 7.1
 
-before_script:
-  - composer install --dev
+cache:
+  directories:
+    - $HOME/.composer/cache
 
-script: phpunit --coverage-clover=coverage.clover
+before_script:
+  - travis_retry composer install --dev
+
+script:
+  - composer validate --strict
+  - vendor/bin/phpunit --coverage-clover=coverage.clover
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
