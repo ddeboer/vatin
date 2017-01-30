@@ -18,6 +18,7 @@ before_script:
   - travis_retry composer install --dev
 
 script:
+  - composer validate --strict
   - vendor/bin/phpunit --coverage-clover=coverage.clover
 
 after_script:
