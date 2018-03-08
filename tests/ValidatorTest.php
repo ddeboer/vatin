@@ -6,7 +6,7 @@ use Ddeboer\Vatin\Validator;
 use Ddeboer\Vatin\Test\Mock\Vies\Response\CheckVatResponse;
 use Ddeboer\Vatin\Vies\Client;
 
-class ValidatorTest extends \PHPUnit_Framework_TestCase
+class ValidatorTest extends \PHPUnit\Framework\TestCase
 {
     private $validator;
 

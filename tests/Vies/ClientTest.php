@@ -4,7 +4,7 @@ namespace Ddeboer\Vatin\Test\Vies;
 
 use Ddeboer\Vatin\Vies\Client;
 
-class ClientTest extends \PHPUnit_Framework_TestCase
+class ClientTest extends \PHPUnit\Framework\TestCase
 {
     public function testCheckVat()
     {
