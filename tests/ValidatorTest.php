@@ -87,6 +87,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
             array('IE1234567TW'),       // Ireland
             array('IE1234567FA'),       // Ireland (since January 2013)
             array('NL999999999B99'),    // The Netherlands
+            array('NO999999999'),       // Norway
             array('ES99999999R'),       // Spain
             array('SE999999999901'),    // Sweden
             array('GB999999973'),       // United Kingdom (standard)
