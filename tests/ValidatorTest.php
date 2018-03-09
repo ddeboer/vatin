@@ -158,6 +158,7 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
             array(''),
             array('123456789'),
             array('XX123'),
+            array('GB999999973dsflksdjflsk'),
             array('BE2999999999'),      // Belgium - "the first digit following the prefix is always zero ("0") or ("1")"
         );
     }
