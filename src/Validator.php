@@ -93,7 +93,7 @@ class Validator
             return false;
         }
 
-        if (0 === preg_match('/^'.$this->patterns[$countryCode].'$/', $vatin)) {
+        if (0 === preg_match('/^(?:'.$this->patterns[$countryCode].')$/', $vatin)) {
             return false;
         }
 
