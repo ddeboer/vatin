@@ -5,8 +5,9 @@ namespace Ddeboer\Vatin\Test;
 use Ddeboer\Vatin\Validator;
 use Ddeboer\Vatin\Test\Mock\Vies\Response\CheckVatResponse;
 use Ddeboer\Vatin\Vies\Client;
+use PHPUnit\Framework\TestCase;
 
-class ValidatorTest extends \PHPUnit\Framework\TestCase
+class ValidatorTest extends TestCase
 {
     private $validator;
 
@@ -57,11 +58,11 @@ class ValidatorTest extends \PHPUnit\Framework\TestCase
         $this->assertFalse($this->validator->isValid('NL123456789B01', true));
     }
 
-
+    /**
+     * @expectedException \Ddeboer\Vatin\Exception\ViesException
+     */
     public function testWrongConnectionThrowsException()
     {
-        $this->setExpectedException('\Ddeboer\Vatin\Exception\ViesException');
-
         $this->validator = new Validator(new Client('meh'));
         $this->validator->isValid('NL002065538B01', true);
     }

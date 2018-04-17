@@ -3,15 +3,17 @@
 namespace Ddeboer\Vatin\Test\Vies;
 
 use Ddeboer\Vatin\Vies\Client;
+use Ddeboer\Vatin\Vies\Response\CheckVatResponse;
+use PHPUnit\Framework\TestCase;
 
-class ClientTest extends \PHPUnit\Framework\TestCase
+class ClientTest extends TestCase
 {
     public function testCheckVat()
     {
         $client = new Client();
         $response = $client->checkVat('NL', '123456789B01');
 
-        $this->assertInstanceOf('\Ddeboer\Vatin\Vies\Response\CheckVatResponse', $response);
+        $this->assertInstanceOf(CheckVatResponse::class, $response);
         $this->assertFalse($response->isValid());
         $this->assertEquals('NL', $response->getCountryCode());
         $this->assertEquals('123456789B01', $response->getVatNumber());
