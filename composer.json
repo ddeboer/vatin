@@ -15,11 +15,11 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=5.6.0"
     },
     "require-dev": {
         "ext-soap": "*",
-        "phpunit/phpunit": "^4.0 || ^5.0"
+        "phpunit/phpunit": "^5.7 || ^6.5"
     },
     "suggest": {
         "ext-soap": "Required if you want to check the VAT number via VIES"
