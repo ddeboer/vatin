@@ -89,6 +89,7 @@ class ValidatorTest extends TestCase
             array('IE1234567FA'),           // Ireland (since January 2013)
             array('NL999999999B99'),        // The Netherlands
             array('NO999999999'),           // Norway
+            array('NO999999999MVA'),        // Norway (including MVA)
             array('ES99999999R'),           // Spain
             array('SE999999999901'),        // Sweden
             array('CHE-123.456.788 TVA'),   // Switzerland
