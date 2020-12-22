@@ -32,8 +32,7 @@ $bool = $validator->isValid('NL123456789B01');
 ```
 
 Additionally check whether the VAT number is in use, with a call to the [VAT
-Information Exchange System (VIES)]
-(http://ec.europa.eu/taxation_customs/vies/faq.html#item_16) SOAP web service:
+Information Exchange System (VIES)](http://ec.europa.eu/taxation_customs/vies/faq.html#item_16) SOAP web service:
 
 ```php
 use Ddeboer\Vatin\Validator;
