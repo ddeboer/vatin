@@ -10,7 +10,7 @@ A small PHP library for validating VAT identification numbers (VATINs).
 Installation
 ------------
 
-This library is available on [Packagist](http://packagist.org/packages/ddeboer/vatin):
+This library is available on [Packagist](https://packagist.org/packages/ddeboer/vatin):
 
 ```bash
 $ composer require ddeboer/vatin
@@ -32,7 +32,7 @@ $bool = $validator->isValid('NL123456789B01');
 ```
 
 Additionally check whether the VAT number is in use, with a call to the [VAT
-Information Exchange System (VIES)](http://ec.europa.eu/taxation_customs/vies/faq.html#item_16) SOAP web service:
+Information Exchange System (VIES)](https://ec.europa.eu/taxation_customs/vies/faq.html#item_16) SOAP web service:
 
 ```php
 use Ddeboer\Vatin\Validator;
