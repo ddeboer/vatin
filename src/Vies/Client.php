@@ -15,7 +15,7 @@ class Client
      *
      * @var string
      */
-    private $wsdl = 'http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl';
+    private $wsdl = 'https://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl';
 
     /**
      * SOAP client
@@ -29,9 +29,9 @@ class Client
      *
      * @var array
      */
-    private $classmap = array(
+    private $classmap = [
         'checkVatResponse' => 'Ddeboer\Vatin\Vies\Response\CheckVatResponse'
-    );
+    ];
 
     /**
      * Constructor
@@ -58,10 +58,10 @@ class Client
     {
         try {
             return $this->getSoapClient()->checkVat(
-                array(
+                [
                     'countryCode' => $countryCode,
                     'vatNumber' => $vatNumber
-                )
+                ]
             );
         } catch (SoapFault $e) {
             throw new ViesException('Error communicating with VIES service', 0, $e);
@@ -78,11 +78,11 @@ class Client
         if (null === $this->soapClient) {
             $this->soapClient = new \SoapClient(
                 $this->wsdl,
-                array(
+                [
                     'classmap' => $this->classmap,
                     'user_agent' => 'Mozilla', // the request fails unless a (dummy) user agent is specified
                     'exceptions' => true,
-                )
+                ]
             );
         }
 
