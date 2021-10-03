@@ -26,7 +26,7 @@ class CheckVatResponse
         return $this->vatNumber;
     }
 
-    public function getRequestDate()
+    public function getRequestDate(): \DateTime
     {
         if (!$this->requestDate instanceof \DateTime) {
             $this->requestDate = new \DateTime($this->requestDate);

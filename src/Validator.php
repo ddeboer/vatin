@@ -8,7 +8,7 @@ use Ddeboer\Vatin\Exception\ViesException;
 /**
  * Validate a VAT identification number (VATIN)
  *
- * @link http://en.wikipedia.org/wiki/VAT_identification_number
+ * @link https://en.wikipedia.org/wiki/VAT_identification_number
  * @link http://sima.cat/nif.php
  * @link https://github.com/jonathanmaron/zf2_proposal/blob/master/library/Zend/Validator/Vatin.php
  */
@@ -18,7 +18,7 @@ class Validator
      * Regular expression patterns per country code
      *
      * @var array
-     * @link http://ec.europa.eu/taxation_customs/vies/faq.html?locale=lt#item_11
+     * @link https://ec.europa.eu/taxation_customs/vies/faq.html?locale=lt#item_11
      */
     private $patterns = array(
         'AT' => 'U[A-Z\d]{8}',
@@ -74,15 +74,10 @@ class Validator
      * Returns true if value is a valid VAT identification number, false
      * otherwise
      *
-     * @param string $value          Value
-     * @param bool   $checkExistence In addition to checking the VATIN's format
-     *                               for validity, also check whether the VATIN
-     *                               exists. This requires a call to the VIES
-     *                               web service.
-     *
-     * @return bool
+     * Optional: In addition to checking the VATIN's format for validity, also check whether the VATIN exists.
+     * This requires a call to the VIES web service (needs SOAP-Ext).
      */
-    public function isValid($value, $checkExistence = false)
+    public function isValid(?string $value, bool $checkExistence = false): bool
     {
         if (null === $value || '' === $value) {
             return false;
@@ -110,22 +105,16 @@ class Validator
 
     /**
      * Returns true if value is valid country code, false otherwise
-     *
-     * @param string $value Value
-     *
-     * @return bool
      */
-    private function isValidCountryCode($value)
+    private function isValidCountryCode(string $value): bool
     {
         return isset($this->patterns[$value]);
     }
 
     /**
      * Get VIES client
-     *
-     * @return Client
      */
-    private function getViesClient()
+    private function getViesClient(): Client
     {
         if ($this->viesClient === null) {
             $this->viesClient = new Client();

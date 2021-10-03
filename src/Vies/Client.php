@@ -33,12 +33,8 @@ class Client
         'checkVatResponse' => 'Ddeboer\Vatin\Vies\Response\CheckVatResponse'
     ];
 
-    /**
-     * Constructor
-     *
-     * @param string|null $wsdl URL to WSDL
-     */
-    public function __construct($wsdl = null)
+
+    public function __construct(?string $wsdl = null)
     {
         if ($wsdl) {
             $this->wsdl = $wsdl;
@@ -48,13 +44,9 @@ class Client
     /**
      * Check VAT
      *
-     * @param string $countryCode Country code
-     * @param string $vatNumber   VAT number
-     *
-     * @return Response\CheckVatResponse
      * @throws ViesException
      */
-    public function checkVat($countryCode, $vatNumber)
+    public function checkVat(string $countryCode, string $vatNumber): Response\CheckVatResponse
     {
         try {
             return $this->getSoapClient()->checkVat(
@@ -68,12 +60,8 @@ class Client
         }
     }
 
-    /**
-     * Get SOAP client
-     *
-     * @return \SoapClient
-     */
-    private function getSoapClient()
+
+    private function getSoapClient(): \SoapClient
     {
         if (null === $this->soapClient) {
             $this->soapClient = new \SoapClient(
