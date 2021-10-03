@@ -1,5 +1,7 @@
 VATIN
 =====
+[![Code_Checks](https://github.com/ddeboer/vatin/actions/workflows/code_checks.yml/badge.svg)](https://github.com/ddeboer/vatin/actions/workflows/code_checks.yml)
+
 [![Build Status](https://travis-ci.org/ddeboer/vatin.svg?branch=master)](https://travis-ci.org/ddeboer/vatin)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ddeboer/vatin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ddeboer/vatin/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/ddeboer/vatin/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/ddeboer/vatin/?branch=master)
