@@ -22,7 +22,7 @@ class Validator
      */
     private $patterns = array(
         'AT' => 'U[A-Z\d]{8}',
-        'BE' => '[0|1]{1}\d{9}',
+        'BE' => '[01]{1}\d{9}',
         'BG' => '\d{9,10}',
         'CH' => 'E(-| ?)(\d{3}(\.)\d{3}(\.)\d{3}|\d{9})( ?)(MWST|TVA|IVA)?',
         'CY' => '\d{8}[A-Z]',
