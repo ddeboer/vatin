@@ -11,7 +11,7 @@ class ValidatorTest extends TestCase
 {
     private $validator;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->validator = new Validator();
     }
@@ -58,19 +58,14 @@ class ValidatorTest extends TestCase
         $this->assertFalse($this->validator->isValid('NL123456789B01', true));
     }
 
-    /**
-     * @expectedException \Ddeboer\Vatin\Exception\ViesException
-     */
     public function testWrongConnectionThrowsException()
     {
+        $this->expectException(\Ddeboer\Vatin\Exception\ViesException::class);
         $this->validator = new Validator(new Client('meh'));
         $this->validator->isValid('NL002065538B01', true);
     }
 
-    /**
-     * @return array
-     */
-    public function getValidVatins()
+    public function getValidVatins(): array
     {
         return array(
             // Examples from Wikipedia (https://en.wikipedia.org/wiki/VAT_identification_number)
@@ -153,10 +148,7 @@ class ValidatorTest extends TestCase
         );
     }
 
-    /**
-     * @return array
-     */
-    public function getInvalidVatins()
+    public function getInvalidVatins(): array
     {
         return array(
             array(null),
@@ -169,10 +161,7 @@ class ValidatorTest extends TestCase
         );
     }
 
-    /**
-     * @return \Ddeboer\Vatin\Vies\Client
-     */
-    private function getViesClientMock()
+    private function getViesClientMock(): Client
     {
         return $this->getMockBuilder('\Ddeboer\Vatin\Vies\Client')
             ->disableOriginalConstructor()
@@ -191,5 +180,4 @@ class ValidatorTest extends TestCase
 
         return $mock;
     }
-
 }
