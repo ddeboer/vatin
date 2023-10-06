@@ -15,21 +15,21 @@ class Client
      *
      * @var string
      */
-    private $wsdl = 'https://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl';
+    protected $wsdl = 'https://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl';
 
     /**
      * SOAP client
      *
      * @var \SoapClient
      */
-    private $soapClient;
+    protected $soapClient;
 
     /**
      * SOAP classmap
      *
      * @var array
      */
-    private $classmap = [
+    protected $classmap = [
         'checkVatResponse' => 'Ddeboer\Vatin\Vies\Response\CheckVatResponse'
     ];
 
@@ -73,7 +73,7 @@ class Client
      *
      * @return \SoapClient
      */
-    private function getSoapClient()
+    protected function getSoapClient()
     {
         if (null === $this->soapClient) {
             $this->soapClient = new \SoapClient(
